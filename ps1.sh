@@ -29,5 +29,5 @@ __prompt_command() {
         PS1+="${Green}✔ ${Reset}"
     fi
 
-    PS1+="${DarkGray}${Time24h} ${Green}\$${Reset} "
+    PS1+="${DarkGray}${Host} ${Green}\$${Reset} "
 }
