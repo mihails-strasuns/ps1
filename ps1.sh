@@ -16,7 +16,13 @@ __prompt_command() {
     if [ "$?" == "0" ]
     then
         PS1+=" [`git rev-parse --abbrev-ref HEAD`]"
-        PS1+=" ${Green}[`git describe --tags --always`]${Reset}"
+        tag=`git describe --tags 2>&1`
+        if [ "$?" == "0" ]
+        then
+            PS1+=" ${Green}[$tag]${Reset}"
+        else
+            PS1+=" ${Green}[`git rev-parse --short=10 HEAD`]${Reset}"
+        fi
     fi
 
     # Second line
